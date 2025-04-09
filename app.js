@@ -1,21 +1,27 @@
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js')
-    .then(() => console.log('✅ Service Worker registrerad!'))
-    .catch(err => console.error('Service Worker-fel:', err));
-}
-
-
-
-
-
-
-
 
 let reminders = [];
 
 if ("Notification" in window) {
   Notification.requestPermission();
 }
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js')
+    .then(() => console.log('✅ Service Worker registrerad!'))
+    .catch(err => console.error('Service Worker-fel:', err));
+}
+
+if ("Notification" in window) {
+  Notification.requestPermission().then(permission => {
+    if (permission === "granted") {
+      console.log('Notifikationer tillåtna');
+    } else {
+      console.log('Notifikationer ej tillåtna');
+    }
+  });
+}
+
+
 
 function addReminder() {
   const time = document.getElementById('time').value;
