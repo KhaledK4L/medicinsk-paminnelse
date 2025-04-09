@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicinsk Påminnelse App</title>
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <h1>💊 Medicinsk Påminnelse</h1>
+
+  <button id="showInstructionsBtn">ℹ️ Hur appen fungerar?</button>
+
+  <div id="info-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>📋 Hur appen fungerar</h2>
+      <p>Den här appen hjälper dig att hålla koll på dina mediciner genom att skicka påminnelser vid specifika tider.</p>
+      <ul>
+        <li>🕒 Ställ in en tid för din medicin.</li>
+        <li>✍️ Skriv en beskrivningav påminnelsen.</li>
+        <li>🔔 När det är dags får du en notis</li>
+        <li>✅ Tryck "Bekräfta" om du tagit medicinen.</li>
+        <li>⏰ Tryck "Snooze" för att skjuta upp den 5 minuter.</li>
+        <li>📝 Tryck "Ändra" om du vill justera tiden.</li>
+      </ul>
+    </div>
+    <div class="dev-img">
+      <img src="icon.png" alt="">
+    </div>
+  </div>
+
+  <div class="reminder-form">
+    <label for="time">⏰ Tid:</label>
+    <input type="time" id="time">
+    <label for="message">✍️ Påminnelse:</label>
+    <input type="text" id="message" placeholder="Vad ska du göra?">
+    <button onclick="addReminder()">➕ Lägg till påminnelse</button>
+  </div>
+
+  <h2>📅 Ditt schema:</h2>
+  <ul id="reminder-list"></ul>
+
+  <script src="app.js"></script>
+</body>
+</html>
